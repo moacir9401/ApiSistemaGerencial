@@ -18,13 +18,6 @@ namespace APISistemaGerencial.Services
             { Guid.Parse("3af0323a-2fed-4d65-844f-d78855e0e516"), new Funcionario { Id = Guid.Parse("3af0323a-2fed-4d65-844f-d78855e0e516"), Nome = "Street Fighter V" }},
             { Guid.Parse("2dbba5a9-e5be-4541-9978-a3ce88ace72c"), new Funcionario { Id = Guid.Parse("2dbba5a9-e5be-4541-9978-a3ce88ace72c"), Nome = "Grand Theft Auto V"}},
         };
-
-
-
-        public Task Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
         public Task<List<Funcionario>> GetAll()
         {
             return Task.FromResult(funcionarios.Values.ToList());
@@ -46,7 +39,14 @@ namespace APISistemaGerencial.Services
 
         public Task Update(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(funcionarios[funcionario.Id] = funcionario);
         }
+         
+        public Task Delete(Guid id)
+        {
+            return Task.FromResult(funcionarios.Remove(id));
+        }
+
+
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace APISistemaGerencial.Interface
 {
-    public interface IFuncionarioContext
+    public interface IFuncionarioContext 
     {
         Task<List<Funcionario>> GetAll();
         Task<Funcionario> Get(Guid id);

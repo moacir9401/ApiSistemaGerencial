@@ -9,7 +9,8 @@ namespace APISistemaGerencial.Models
     [Table("Endereco")]
     public class Endereco
     {
-        
+
+        public Guid Id { get; set; }
         public string End { get; set; }        
         public string Numero { get; set; }        
         public string Complemento { get; set; }        

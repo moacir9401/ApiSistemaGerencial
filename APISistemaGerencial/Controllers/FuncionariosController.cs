@@ -50,5 +50,35 @@ namespace APISistemaGerencial.Controllers
                 return UnprocessableEntity("Erro ao inserir Funcionário");
             }
         }
+
+        [HttpPut]
+        public async Task<ActionResult<Funcionario>> Update([FromBody] Funcionario _funcionario)
+        {
+            try
+            {
+               await _funcionarioContext.Update(_funcionario);
+
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return UnprocessableEntity("Erro ao Alterar Funcionário");
+            }
+        }
+
+        [HttpDelete("{id:Guid}")]
+        public async Task<ActionResult<Funcionario>> Delete(Guid id)
+        {
+            try
+            {
+                await _funcionarioContext.Delete(id);
+
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return UnprocessableEntity("Erro ao Excluir Funcionário");
+            }
+        }
     }
 }
